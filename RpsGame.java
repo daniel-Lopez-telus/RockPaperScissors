@@ -1,12 +1,12 @@
 public class RpsGame {
 
-    Player playerA;
-    Player playerB;
+    Players playerA;
+    Players playerB;
     Score score;
     Rounds rounds;
     Match match;
 
-    public RpsGame(Player playerA, Player playerB, Score score, Rounds rounds, Match match) {
+    public RpsGame(Players playerA, Players playerB, Score score, Rounds rounds, Match match) {
         this.playerA = playerA;
         this.playerB = playerB;
         this.score = score;
@@ -17,8 +17,8 @@ public class RpsGame {
     public void prepareGame() {
         rounds.clearGame();
         match.setGame();
-        playerA.choosePlayer();
-        playerB.choosePlayer();
+        //playerA.choosePlayer();
+        //playerB.choosePlayer();
         rounds.startGame();
     }
 
