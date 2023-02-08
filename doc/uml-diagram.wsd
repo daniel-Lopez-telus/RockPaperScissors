@@ -1,0 +1,69 @@
+@startuml
+
+    object rpsGame
+    object rpsGameGoal
+    object ExecuteGame
+    object createPlayers
+    object createMatch
+    object exitGame
+
+    object match
+    object matchGoals
+    object createScore
+    object countRounds
+    object executeRounds
+
+    object round
+    object roundGoals
+    object updateScoreGame
+    object checkWinner
+    
+    object score
+    object showScore
+
+    object player
+    object humanPlayer
+    object computerPlayer
+    object playersGoal
+    object chooseAShape
+    
+    object shape
+    object rock
+    object paper
+    object scissor
+
+    rpsGame *-- rpsGameGoal
+    ExecuteGame -up-|> rpsGameGoal
+    createPlayers -up-|> rpsGameGoal
+    createMatch -up-|> rpsGameGoal
+    exitGame -up-|> rpsGameGoal
+
+    rpsGame *-- match
+    match *-- player
+    match *-- round
+    match o-- matchGoals
+    executeRounds -up-|> matchGoals
+    countRounds -up-|> matchGoals
+    createScore -up-|> matchGoals
+
+    match *-- score
+    round --> score
+    showScore -up-|> roundGoals
+
+    round o-- roundGoals
+    updateScoreGame -up-|> roundGoals
+    checkWinner -up-|> roundGoals
+
+    humanPlayer -up-|> player 
+    computerPlayer -up-|> player 
+    player o-- playersGoal
+    chooseAShape -up-|> playersGoal
+
+    player --> shape
+    rock -up-|> shape 
+    paper -up-|> shape 
+    scissor -up-|> shape 
+
+    
+
+    @enduml

@@ -1,0 +1,39 @@
+@startuml flowchart
+
+start;
+:start game;
+:welcome greeting;
+if(start or quit) then (yes)
+    repeat
+        :set score;
+        :set mode;
+            if(human vrs human) then
+                :set player1;
+                :set player2;
+            elseif (human vrs computer) then
+                :set player1;
+                :set computer;
+            elseif (computer vrs computer) then
+                :set computer1;
+                :set computer2;
+        endif
+            repeat
+                :initial message;
+                :player1 choose a shape;
+                :player2 choose a shape;
+                :expectation message;
+                :check who wins the round;
+                :update score and show round's number;
+            repeat while (player1<3 && player2<3) is (yes)
+            ->no;
+            :winner message;
+        
+        repeat while(do you wanna try again?) is (yes)
+        -> no;
+        :End game with a greet;
+        stop;
+else (no)
+:end game with a greet;
+stop;
+
+@enduml
