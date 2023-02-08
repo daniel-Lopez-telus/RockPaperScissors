@@ -1,11 +1,11 @@
 @startuml ClassDiagram
 
 abstract class Players{
-    - int currentScore
-    - Shapes shapeSelected
+    # int currentScore
+    # Shapes shapeSelected
 
     + void chooseAShape()
-    + Shapes getShape()
+    + Shapes getShapeSelected()
     + int getCurrentScore()
     + void setCurrentScore()
 }
