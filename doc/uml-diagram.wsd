@@ -1,69 +1,116 @@
-@startuml
+@startuml ClassDiagram
 
-    object rpsGame
-    object rpsGameGoal
-    object ExecuteGame
-    object createPlayers
-    object createMatch
-    object exitGame
 
-    object match
-    object matchGoals
-    object createScore
-    object countRounds
-    object executeRounds
 
-    object round
-    object roundGoals
-    object updateScoreGame
-    object checkWinner
-    
-    object score
-    object showScore
 
-    object player
-    object humanPlayer
-    object computerPlayer
-    object playersGoal
-    object chooseAShape
-    
-    object shape
-    object rock
-    object paper
-    object scissor
 
-    rpsGame *-- rpsGameGoal
-    ExecuteGame -up-|> rpsGameGoal
-    createPlayers -up-|> rpsGameGoal
-    createMatch -up-|> rpsGameGoal
-    exitGame -up-|> rpsGameGoal
-
-    rpsGame *-- match
-    match *-- player
-    match *-- round
-    match o-- matchGoals
-    executeRounds -up-|> matchGoals
-    countRounds -up-|> matchGoals
-    createScore -up-|> matchGoals
-
-    match *-- score
-    round --> score
-    showScore -up-|> roundGoals
-
-    round o-- roundGoals
-    updateScoreGame -up-|> roundGoals
-    checkWinner -up-|> roundGoals
-
-    humanPlayer -up-|> player 
-    computerPlayer -up-|> player 
-    player o-- playersGoal
-    chooseAShape -up-|> playersGoal
-
-    player --> shape
-    rock -up-|> shape 
-    paper -up-|> shape 
-    scissor -up-|> shape 
+abstract class Players{
+    + abstract Shape chooseAShape()
+    + abstract String toString()
 
     
+}
+class HumanPlayer{
 
-    @enduml
+}
+
+class ComputerPlayer{}
+
+class Score{
+    - int playersBestScore
+
+    + void updateScoreGame()
+    + void showFinalResults()
+    + int getPlayersScore()
+
+}
+class Rounds{
+    - int myRoundNumber
+    - int p1Score
+    - int p2Score
+    - Player player1
+    - Player player2
+
+    + Round()
+    - void runningRound()
+    - void checkWinnerOfTheRound()
+    - void updateScoreGame()
+    + List<Integer> returnScoreInfo()
+}
+
+
+class Match{
+    - ArrayList<Player> players
+    - ArrayList<Round> rounds
+    - List<Integer> score
+    - int numberOfRounds
+
+
+
+    + Match()
+    - void executeInitialRound()
+    - void executeRounds()
+    - void checkScore()
+    - void announceWinner()
+    - void updateRoundNumber()
+}
+
+abstract class Shapes{
+    # boolean isShapeSelected
+
+    + abstract boolean selectedShape()
+    + abstract String toString()
+}
+
+class Rock{
+    + final boolean BEATSPAPER
+    + final boolean BEATSSCISSORS
+
+    + Rock()
+}
+class Paper{
+    + final boolean BEATSROCK
+    + final boolean BEATSSCISSORS
+    + Paper()
+}
+class Scissors{
+    + final boolean BEATSPAPER
+    + final boolean BEATSROCK
+    + Scissors()
+}
+
+class RpsGame{            
+    - Match
+
+    + rpsGame()
+    + void executeGame()
+    + void exitGame()
+    + Match createMatch()
+    + ArrayList<Players> createPlayers()
+    + String getMessages()
+}
+
+
+RpsGame *-- Match
+
+
+
+Shapes <|-- Rock
+Shapes <|-- Paper
+Shapes <|-- Scissors
+
+
+Players *-left- Match
+Players <|-- HumanPlayer
+Players <|-- ComputerPlayer
+Players --> Shapes
+
+Score -left-> Players
+Rounds --> Score
+Rounds --> Shapes
+Rounds --> Players
+Match *-- Rounds
+
+
+
+@enduml
