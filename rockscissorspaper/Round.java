@@ -10,8 +10,8 @@ public class Round {
 
     Shape shapes[];
     private int myRoundNumber;
-    private int p1Score;
-    private int p2Score;
+    private static int p1Score;
+    private static int p2Score;
     private Player player1;
     private Player player2;
 
@@ -19,8 +19,8 @@ public class Round {
     public Round(List<Integer> score, int numberOfRound, ArrayList<Player> player){
         shapes = new Shape[3];
         this.shapes = new Shape[3];
-        this.p1Score = (int) score.get(0);
-        this.p2Score = (int) score.get(1);
+        Round.p1Score = (int) score.get(0);
+        Round.p2Score = (int) score.get(1);
         this.player1 = (Player) player.get(0);
         this.player2 = (Player) player.get(1);
         this.myRoundNumber = numberOfRound;
@@ -34,7 +34,7 @@ public class Round {
         System.out.println("#YOU ARE PLAYING NOW !!!\n" +
                 "#ROUND " + myRoundNumber + ":\n" +
                 "#LIVE SCORE: P1 = " + p1Score + " || P2 = " + p2Score +
-                "/n#====================================================");
+                "\n#====================================================");
         System.out.println("# P1 SELECT YOUR WEAPON:\n" +
                 "#1. ROCK\n" +
                 "#2. SCISSORS\n" +
