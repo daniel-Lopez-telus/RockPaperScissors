@@ -23,3 +23,56 @@
 # P2 SELECT YOUR WEAPON:
 #1. ROCK
 #2. SCISSORS
+#3. PAPER
+------------------------------------------------------
+##READY . . . ?
+#
+#
+# PAPER BEATS ROCK 
+#
+------------------------------------------------------
+showWinner();
+# PLAYER 1 WINS!!!!! P1 HAVE SCORED 1 POINT OUT OF 3.
+#=====================================================
+#YOU ARE PLAYING NOW !!!
+#ROUND 2:
+#LIVE SCORE: P1 = 1 || P2 = 0
+#====================================================
+# P1 SELECT YOUR WEAPON:
+#1. ROCK
+#2. SCISSORS
+#3. PAPER
+#
+# P2 SELECT YOUR WEAPON:
+#1. ROCK
+#2. SCISSORS
+#3. PAPER
+#
+##READY . . . ?
+#
+#
+# ROCK BEATS SCISSORS 
+#
+# PLAYER 2 WINS!!!!! P2 HAVE SCORED 1 POINT OUT OF 3.
+#=====================================================
+#YOU ARE PLAYING NOW !!!
+#ROUND 3:
+#LIVE SCORE: P1 = 1 || P2 = 1
+#====================================================
+# P1 SELECT YOUR WEAPON:
+#1. ROCK
+#2. SCISSORS
+#3. PAPER
+#
+# P2 SELECT YOUR WEAPON:
+#1. ROCK
+#2. SCISSORS
+#3. PAPER
+#
+##READY . . . ?
+#
+#
+# ROCK BEATS SCISSORS 
+#
+# PLAYER 1 WINS!!!!! P1 HAVE SCORED 1 POINT OUT OF 3.
+#=====================================================
